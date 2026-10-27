@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fedha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- LOGIN AND REGISTRATION -->
+  <div id="authView" class="auth-body">
+    <div class="auth-card">
+
+      <h1 class="auth-brand">↗ Fedha</h1>
+      <p class="auth-tag">
+        Budget Management System · Plan • Track • Save • Grow
+      </p>
+
+      <!-- LOGIN AND REGISTER TABS -->
+      <div class="tabs" role="tablist">
+        <button
+          role="tab"
+          id="tabLogin"
+          type="button"
+          aria-selected="true"
+          aria-controls="loginForm"
+        >
+          Log in
+        </button>
+
+        <button
+          role="tab"
+          id="tabReg"
+          type="button"
+          aria-selected="false"
+          aria-controls="regForm"
+        >
+          Register
+        </button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginForm" novalidate>
+        <label for="lEmail">Email</label>
+        <input
+          id="lEmail"
+          type="email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="lPass">Password</label>
+        <input
+          id="lPass"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <div class="showpw">
+          <input id="lShow" type="checkbox">
+          <label for="lShow">Show password</label>
+        </div>
+
+        <button class="submit" type="submit">
+          Log in
+        </button>
+      </form>
+
+      <!-- REGISTRATION FORM -->
+      <form id="regForm" class="hidden" novalidate>
+        <label for="rName">Full name</label>
+        <input
+          id="rName"
+          type="text"
+          autocomplete="name"
+          required
+        >
+        <div class="err" id="eName"></div>
+
+        <label for="rEmail">Email</label>
+        <input
+          id="rEmail"
+          type="email"
+          autocomplete="email"
+          required
+        >
+        <div class="err" id="eEmail"></div>
+
+        <label for="rPass">Password</label>
+        <input
+          id="rPass"
+          type="password"
+          autocomplete="new-password"
+          required
+        >
+        <div class="err" id="ePass"></div>
+
+        <label for="rConf">Confirm password</label>
+        <input
+          id="rConf"
+          type="password"
+          autocomplete="new-password"
+          required
+        >
+        <div class="err" id="eConf"></div>
+
+        <button class="submit" type="submit">
+          Create account
+        </button>
+      </form>
+
+      <!-- STATUS MESSAGES -->
+      <div
+        class="msg"
+        id="msg"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <!-- SIGN UP BUTTON: REPLACES SAMPLE DATA -->
+      <div class="demo">
+        <span>Don't have an account?</span>
+        <button
+          class="btn secondary"
+          id="signupBtn"
+          type="button"
+        >
+          Sign Up
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION DASHBOARD -->
+  <div id="appView" class="app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        ↗ Fedha
+        <small>BUDGET MANAGEMENT SYSTEM</small>
+      </div>
+
+      <div class="profile">
+        <div class="avatar" id="avatar">?</div>
+        <div>
+          <strong id="profileName">Student</strong>
+          <small>Personal finance</small>
+        </div>
+      </div>
+
+      <div class="nav-label">MAIN MENU</div>
+
+      <nav class="nav" id="nav">
+        <button type="button" data-page="dashboard">
+          <span class="ico">▦</span>Dashboard
+        </button>
+
+        <button type="button" data-page="transactions">
+          <span class="ico">⇄</span>Transactions
+        </button>
+
+        <button type="button" data-page="budgets">
+          <span class="ico">▤</span>Budgets
+        </button>
+
+        <button type="button" data-page="savings">
+          <span class="ico">◉</span>Savings &amp; Goals
+        </button>
+
+        <button type="button" data-page="reports">
+          <span class="ico">▥</span>Reports
+        </button>
+
+        <button type="button" data-page="test">
+          <span class="ico">⚗</span>Test Sandbox
+        </button>
+
+        <button type="button" data-page="settings">
+          <span class="ico">⚙</span>Profile &amp; Settings
+        </button>
+      </nav>
+
+      <div class="side-foot">
+        <div class="side-note">
+          Plan • Track • Save • Grow
+          <br>
+          Data is saved in this browser on this device.
+        </div>
+
+        <button class="logout" id="logout" type="button">
+          Log out
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+      <header class="topbar">
+        <div>
+          <h2 id="pageTitle">Dashboard</h2>
+          <p id="pageSub">Manage your money with confidence.</p>
+        </div>
+
+        <span class="mode">● LOCAL PROTOTYPE</span>
+      </header>
+
+      <main class="content" id="view"></main>
+
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS AND MODAL -->
+  <div class="toast hidden" id="toast" role="status"></div>
+  <div class="modal hidden" id="modal"></div>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script src="app.js"></script>
+
+</body>
+</html>
